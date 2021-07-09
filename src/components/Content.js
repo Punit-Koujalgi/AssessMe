@@ -1,0 +1,80 @@
+import { useState } from "react";
+import "./Content.css";
+import Loading from "./types/Loading";
+import Error from "./types/error";
+import FITB from "./types/fitb";
+import MCQ from "./types/mcq";
+import MTF from "./types/mtf";
+import TF from "./types/tf";
+import fetchDataAPI from "./utilities/Data";
+import Default from "./types/Default";
+
+const Content = (props) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(false);
+  const [fetchedContent, setFetchedContent] = useState(null);
+
+  let content = <Default />;
+
+  if (fetchedContent && props.showing === "FITB") {
+    content = <FITB data={fetchedContent["FITB"]} />;
+  }
+
+  if (fetchedContent && props.showing === "MTF") {
+    content = <MTF data={fetchedContent["MTF"]} />;
+  }
+
+  if (fetchedContent && props.showing === "MCQ") {
+    content = <MCQ data={fetchedContent["MCQ"]} />;
+  }
+
+  if (fetchedContent && props.showing === "TF") {
+    content = <TF data={fetchedContent["TF"]} />;
+  }
+  if (error && !isLoading) content = <Error />;
+  if (isLoading) content = <Loading />;
+
+  const fetchData = (event) => {
+    setIsLoading(true);
+    setError(false);
+    const context = document.getElementById("context").value;
+    fetchDataAPI(context, setError, setFetchedContent, setIsLoading);
+  };
+
+  const clear = () => {
+    if (isLoading) return;
+    document.getElementById("context").value = "";
+  };
+
+  return (
+    <div className="container-fluid columns">
+      <div className="row">
+        <div className="col-md-5 column1">
+          <div className="mb-0" id="context-out">
+            <label className="form-label">Enter Context:</label>
+            <textarea
+              className="form-control shadow-none"
+              id="context"
+              rows="17"></textarea>
+          </div>
+          <div className="container-fluid eval-buttons-cont">
+            <button
+              type="button"
+              className="btn shadow-none navButtons m-0"
+              onClick={fetchData}>
+              Evaluate
+            </button>
+            <button
+              type="button"
+              className="btn shadow-none navButtons"
+              onClick={clear}>
+              Clear
+            </button>
+          </div>
+        </div>
+        <div className="col-md-7 column2">{content}</div>
+      </div>
+    </div>
+  );
+};
+export default Content;
