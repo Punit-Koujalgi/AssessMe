@@ -18,7 +18,7 @@ const getOptions = (ans, arr) => {
     arr = arr.slice(0, 3);
   }
   let newArray = [...arr, <mark>{ans}</mark>];
-  console.log(newArray);
+  //console.log(newArray);
   return shuffleArray(newArray);
 };
 

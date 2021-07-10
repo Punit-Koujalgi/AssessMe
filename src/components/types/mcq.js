@@ -14,12 +14,12 @@ function shuffleArray(array) {
 }
 
 const getOptions = (ans, arr) => {
-  console.log(arr);
+  //console.log(arr);
   if (arr.length > 3) {
     arr = arr.slice(0, 3);
   }
   let newArray = [...arr, ans];
-  console.log(newArray);
+  //console.log(newArray);
   return shuffleArray(newArray);
 };
 
