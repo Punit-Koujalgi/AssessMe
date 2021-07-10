@@ -153,7 +153,6 @@
 //     },
 //   ],
 // };
-//async
 
 async function fetchDataAPI(
   context,
@@ -162,7 +161,8 @@ async function fetchDataAPI(
   setIsLoading
 ) {
   try {
-    const api = "http://localhost:5000/api/mcqs?context=" + context;
+    //const api = "http://localhost:5000/api/mcqs?context=" + context;
+    const api = "http://65.0.171.118:8000/api/mcqs?context=" + context;
     const response = await fetch(api);
 
     const data = await response.json();

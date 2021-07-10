@@ -3,9 +3,13 @@ import "./Content.css";
 import Loading from "./types/Loading";
 import Error from "./types/error";
 import FITB from "./types/fitb";
+import FITBAns from "./answers/FitbAns";
 import MCQ from "./types/mcq";
+import MCQAns from "./answers/McqAns";
 import MTF from "./types/mtf";
+import MTFAns from "./answers/MtfAns";
 import TF from "./types/tf";
+import TFAns from "./answers/TfAns";
 import fetchDataAPI from "./utilities/Data";
 import Default from "./types/Default";
 
@@ -17,19 +21,23 @@ const Content = (props) => {
   let content = <Default />;
 
   if (fetchedContent && props.showing === "FITB") {
-    content = <FITB data={fetchedContent["FITB"]} />;
+    if (props.answers) content = <FITBAns data={fetchedContent["FITB"]} />;
+    else content = <FITB data={fetchedContent["FITB"]} />;
   }
 
   if (fetchedContent && props.showing === "MTF") {
-    content = <MTF data={fetchedContent["MTF"]} />;
+    if (props.answers) content = <MTFAns data={fetchedContent["MTF"]} />;
+    else content = <MTF data={fetchedContent["MTF"]} />;
   }
 
   if (fetchedContent && props.showing === "MCQ") {
-    content = <MCQ data={fetchedContent["MCQ"]} />;
+    if (props.answers) content = <MCQAns data={fetchedContent["MCQ"]} />;
+    else content = <MCQ data={fetchedContent["MCQ"]} />;
   }
 
   if (fetchedContent && props.showing === "TF") {
-    content = <TF data={fetchedContent["TF"]} />;
+    if (props.answers) content = <TFAns data={fetchedContent["TF"]} />;
+    else content = <TF data={fetchedContent["TF"]} />;
   }
   if (error && !isLoading) content = <Error />;
   if (isLoading) content = <Loading />;

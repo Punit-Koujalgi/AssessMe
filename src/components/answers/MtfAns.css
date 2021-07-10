@@ -1,0 +1,15 @@
+.row {
+  height: fit-content;
+  border-bottom: 1px solid rgb(209, 209, 214);
+  text-align: center;
+}
+
+.row1 {
+  height: fit-content;
+  border-bottom: 1px dotted rgb(209, 209, 214);
+  text-align: center;
+}
+
+.heading {
+  text-align: center;
+}

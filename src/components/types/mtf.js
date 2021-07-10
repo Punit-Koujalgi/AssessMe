@@ -16,8 +16,8 @@ const MTF = (props) => {
   let keys = props.data.keys;
   let defs = props.data.defs;
 
-  keys = shuffleArray(keys);
-  defs = shuffleArray(defs);
+  keys = shuffleArray([...keys]);
+  defs = shuffleArray([...defs]);
 
   return (
     <div className="container-fluid behind-mtf">

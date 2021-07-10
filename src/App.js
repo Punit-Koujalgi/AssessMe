@@ -11,7 +11,7 @@ function App() {
     setShowing(type);
   };
   const changeAnswers = () => {
-    setAnswers(true);
+    setAnswers((prev) => !prev);
   };
   return (
     <div className="App">
