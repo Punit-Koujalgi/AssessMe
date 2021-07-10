@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/AssessMe/static/css/main.ed802176.chunk.css",
+    "main.js": "/AssessMe/static/js/main.1c6cf78c.chunk.js",
+    "main.js.map": "/AssessMe/static/js/main.1c6cf78c.chunk.js.map",
+    "runtime-main.js": "/AssessMe/static/js/runtime-main.4a05351b.js",
+    "runtime-main.js.map": "/AssessMe/static/js/runtime-main.4a05351b.js.map",
+    "static/css/2.ed23a5ad.chunk.css": "/AssessMe/static/css/2.ed23a5ad.chunk.css",
+    "static/js/2.2a1010c8.chunk.js": "/AssessMe/static/js/2.2a1010c8.chunk.js",
+    "static/js/2.2a1010c8.chunk.js.map": "/AssessMe/static/js/2.2a1010c8.chunk.js.map",
+    "static/js/3.4ee2132a.chunk.js": "/AssessMe/static/js/3.4ee2132a.chunk.js",
+    "static/js/3.4ee2132a.chunk.js.map": "/AssessMe/static/js/3.4ee2132a.chunk.js.map",
+    "index.html": "/AssessMe/index.html",
+    "static/css/2.ed23a5ad.chunk.css.map": "/AssessMe/static/css/2.ed23a5ad.chunk.css.map",
+    "static/css/main.ed802176.chunk.css.map": "/AssessMe/static/css/main.ed802176.chunk.css.map",
+    "static/js/2.2a1010c8.chunk.js.LICENSE.txt": "/AssessMe/static/js/2.2a1010c8.chunk.js.LICENSE.txt",
+    "static/media/mdb.css": "/AssessMe/static/media/arrow_right.0897f985.svg",
+    "static/media/all.min.css": "/AssessMe/static/media/fa-solid-900.efbd5d20.eot"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4a05351b.js",
+    "static/css/2.ed23a5ad.chunk.css",
+    "static/js/2.2a1010c8.chunk.js",
+    "static/css/main.ed802176.chunk.css",
+    "static/js/main.1c6cf78c.chunk.js"
+  ]
+}
