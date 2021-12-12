@@ -21,12 +21,19 @@
   overflow-y: scroll;
 }
 
-#context {
+#context,
+#limit {
   background-color: rgb(58, 58, 60);
   font-family: "Merriweather Sans";
   color: rgb(209, 209, 214);
   border-color: rgb(209, 209, 214);
 }
+
+#limit {
+  width: 100%;
+  text-align: center;
+}
+
 .eval-buttons-cont {
   display: flex;
   justify-content: center;

@@ -7,46 +7,23 @@ const Navbar = (props) => {
   const mcq = () => {
     props.onChangeShowing("MCQ");
   };
-  const tf = () => {
-    props.onChangeShowing("TF");
-  };
-  const mtf = () => {
-    props.onChangeShowing("MTF");
-  };
 
   return (
     <div id="navbar" className="container-fluid">
-      <div className="name mb-0 h2">Assess Me!</div>
-      <div id="controls" className="container-fluid mt-3">
+      <div className="name mb-0 h2">FAQ Generator</div>
+      <div className="divider mt-3"></div>
+      <div id="controls" className="container-fluid mt-1">
         <button
           type="button"
           className="btn shadow-none navButtons"
           onClick={fitb}>
-          F-I-T-B
+          Context-based-Questions
         </button>
         <button
           type="button"
           className="btn shadow-none navButtons"
           onClick={mcq}>
-          MCQs
-        </button>
-        <button
-          type="button"
-          className="btn shadow-none navButtons"
-          onClick={tf}>
-          True/False
-        </button>
-        <button
-          type="button"
-          className="btn shadow-none navButtons"
-          onClick={mtf}>
-          M-T-F
-        </button>
-        <button
-          type="button"
-          className="btn shadow-none navButtons"
-          onClick={props.onChangeAnswers}>
-          View Answers
+          Domain-knowledge-Questions
         </button>
       </div>
     </div>

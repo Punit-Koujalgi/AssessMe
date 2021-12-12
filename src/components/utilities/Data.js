@@ -156,17 +156,45 @@
 
 async function fetchDataAPI(
   context,
+  limit,
   setError,
   setFetchedContent,
   setIsLoading
 ) {
   try {
-    //const api = "http://localhost:5000/api/mcqs?context=" + context;
-    const api = "http://54.145.62.112:8000/api/mcqs?context=" + context;
-    const response = await fetch(api);
+    // let input = {
+    //   context: context,
+    //   limit: 50,
+    // };
+    // const api = "https://faq-generator.loca.lt/api";
+    // const response = await fetch(api, {
+    //   method: "POST",
+    //   mode: "no-cors",
+    //   credentials: "include",
+    //   body: {
+    //     // context: _context;
+    //     context: "Delhi is the capital of India.",
+    //     limit: 5,
+    //   },
+    // });
+    let url = new URL("https://faq-generator-1.loca.lt/api");
+    let params = { context: context, limit: limit };
+    url.search = new URLSearchParams(params).toString();
+    let response = await fetch(url);
+    console.log(response);
+    const cxt = await response.json();
+    console.log(cxt);
 
-    const data = await response.json();
-    //console.log(data);
+    url = new URL("https://faq-generator-1.loca.lt/extra");
+    params = { context: context };
+    url.search = new URLSearchParams(params).toString();
+    response = await fetch(url);
+    console.log(response);
+    const domain = await response.json();
+    console.log(domain);
+
+    const data = { context: cxt, domain: domain };
+    console.log(data);
     setFetchedContent(data);
   } catch {
     setError(true);

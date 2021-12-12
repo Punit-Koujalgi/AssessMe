@@ -3,13 +3,7 @@ import "./Content.css";
 import Loading from "./types/Loading";
 import Error from "./types/error";
 import FITB from "./types/fitb";
-import FITBAns from "./answers/FitbAns";
 import MCQ from "./types/mcq";
-import MCQAns from "./answers/McqAns";
-import MTF from "./types/mtf";
-import MTFAns from "./answers/MtfAns";
-import TF from "./types/tf";
-import TFAns from "./answers/TfAns";
 import fetchDataAPI from "./utilities/Data";
 import Default from "./types/Default";
 
@@ -21,24 +15,13 @@ const Content = (props) => {
   let content = <Default />;
 
   if (fetchedContent && props.showing === "FITB") {
-    if (props.answers) content = <FITBAns data={fetchedContent["FITB"]} />;
-    else content = <FITB data={fetchedContent["FITB"]} />;
-  }
-
-  if (fetchedContent && props.showing === "MTF") {
-    if (props.answers) content = <MTFAns data={fetchedContent["MTF"]} />;
-    else content = <MTF data={fetchedContent["MTF"]} />;
+    content = <FITB data={fetchedContent["context"]} />;
   }
 
   if (fetchedContent && props.showing === "MCQ") {
-    if (props.answers) content = <MCQAns data={fetchedContent["MCQ"]} />;
-    else content = <MCQ data={fetchedContent["MCQ"]} />;
+    content = <MCQ data={fetchedContent["domain"]} />;
   }
 
-  if (fetchedContent && props.showing === "TF") {
-    if (props.answers) content = <TFAns data={fetchedContent["TF"]} />;
-    else content = <TF data={fetchedContent["TF"]} />;
-  }
   if (error && !isLoading) content = <Error />;
   if (isLoading) content = <Loading />;
 
@@ -46,7 +29,9 @@ const Content = (props) => {
     setIsLoading(true);
     setError(false);
     const context = document.getElementById("context").value;
-    fetchDataAPI(context, setError, setFetchedContent, setIsLoading);
+    let limit = document.getElementById("limit").value;
+    if (!(limit > 5 && limit < 25)) limit = 10;
+    fetchDataAPI(context, limit, setError, setFetchedContent, setIsLoading);
   };
 
   const clear = () => {
@@ -61,9 +46,16 @@ const Content = (props) => {
           <div className="mb-0" id="context-out">
             <label className="form-label">Enter Context:</label>
             <textarea
-              className="form-control shadow-none"
+              className="form-control mb-3 shadow-none"
               id="context"
-              rows="17"></textarea>
+              rows="13"></textarea>
+            Enter limit:{" "}
+            <input
+              type="number"
+              id="limit"
+              placeholder="10"
+              min="5"
+              max="25"></input>
           </div>
           <div className="container-fluid eval-buttons-cont">
             <button

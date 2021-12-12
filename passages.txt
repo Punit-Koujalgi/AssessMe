@@ -1,7 +1,7 @@
 ssh -i C:\Users\Punit\ReactProjects\flask2.pem ubuntu@65.0.171.118
 source my_env/bin/activate
 pkill gunicorn (For "Connection in use" error)
-gunicorn -b 0.0.0.0:8000 --access-logfile - --workers=3 --timeout 200 "application:application"
+gunicorn -b 0.0.0.0:8000 --access-logfile - --workers=3 --timeout 500 --worker-class=gevent "application:application"
 
 ssh -i C:\Users\Punit\ReactProjects\blogger.pem ubuntu@3.226.8.44
 source myenv/bin/activate

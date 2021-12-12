@@ -1,27 +1,25 @@
 import "./fitb.css";
 
 const FITB = (props) => {
-  const options = [];
   const questions = [];
+  const answers = [];
   props.data.forEach((item) => {
-    options.push(item.answer);
-    questions.push(item.question);
+    let ques = item.question;
+    let ans = item.answer;
+    questions.push(ques);
+    answers.push(ans);
   });
   return (
     <div className="container-fluid">
-      <div className="options">
-        {options.map((op, i) => (
-          <span className="answer" key={i}>
-            {op}
-          </span>
-        ))}
-      </div>
-      <div className="divider mt-3"></div>
       <div className="questions">
         {questions.map((op, i) => (
           <div className="ques" key={i}>
             {(i + 1).toString() + " ) "}
             {op}
+            <div className="ans" key={i}>
+              {"Ans: "}
+              {answers[i]}
+            </div>
           </div>
         ))}
       </div>
