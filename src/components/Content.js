@@ -49,7 +49,7 @@ const Content = (props) => {
               className="form-control mb-3 shadow-none"
               id="context"
               rows="13"></textarea>
-            Enter limit:{" "}
+            Enter number of FAQs to generate:{" "}
             <input
               type="number"
               id="limit"
